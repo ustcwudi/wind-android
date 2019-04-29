@@ -6,6 +6,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.GridView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import platform.client.wind.R;
 import platform.client.wind.fragment.HomeFragment;
@@ -31,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     transaction.show(homeFragment);
                     break;
-                case R.id.navigation_shop:
+                case R.id.navigation_item:
+                    transaction.show(mineFragment);
+                    break;
+                case R.id.navigation_find:
                     transaction.show(shopFragment);
                     break;
                 case R.id.navigation_mine:

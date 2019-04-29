@@ -1,6 +1,5 @@
 package platform.client.wind.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,12 +7,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.GridView;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import platform.client.wind.R;
-import platform.client.wind.activity.LoginActivity;
 
 public class HomeFragment extends Fragment {
+
+    private GridView gridView;
+    ArrayList<HashMap<String, Object>> arrayList;
+    private String[] titleArray = new String[]{"日历", "新闻", "消息", "旗帜", "钱包", "目标", "发现", "设置"};
+    private int[] idArray = new int[]{R.drawable.ic_date, R.drawable.ic_news, R.drawable.ic_message, R.drawable.ic_flag, R.drawable.ic_wallet, R.drawable.ic_target, R.drawable.ic_lamp, R.drawable.ic_config};
 
     @Nullable
     @Override
@@ -24,14 +31,19 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Button button = getActivity().findViewById(R.id.button1);
-        button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),LoginActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
+        gridView = getActivity().findViewById(R.id.main_grid);
+        arrayList = new ArrayList<>();
+
+        for (int i = 0; i < 8; i++) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("image", idArray[i]);
+            hashMap.put("text", titleArray[i]);
+            arrayList.add(hashMap);
+        }
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(getContext(), arrayList, R.layout.fragment_item,
+                new String[] { "image", "text" }, new int[] { R.id.image, R.id.text });
+        gridView.setAdapter(simpleAdapter);
     }
 }
