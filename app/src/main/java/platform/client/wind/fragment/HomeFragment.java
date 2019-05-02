@@ -4,46 +4,68 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.SimpleAdapter;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 import platform.client.wind.R;
+import platform.client.wind.adapter.HomeAdapter;
+import platform.client.wind.custom.CustomScrollListener;
 
 public class HomeFragment extends Fragment {
-
-    private GridView gridView;
-    ArrayList<HashMap<String, Object>> arrayList;
-    private String[] titleArray = new String[]{"日历", "新闻", "消息", "旗帜", "钱包", "目标", "发现", "设置"};
-    private int[] idArray = new int[]{R.drawable.ic_date, R.drawable.ic_news, R.drawable.ic_message, R.drawable.ic_flag, R.drawable.ic_wallet, R.drawable.ic_target, R.drawable.ic_lamp, R.drawable.ic_config};
+    private RecyclerView recyclerView;
+    private Toolbar toolbar;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        initRecyclerView();
+    }
 
-        gridView = getActivity().findViewById(R.id.main_grid);
-        arrayList = new ArrayList<>();
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
-        for (int i = 0; i < 8; i++) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("image", idArray[i]);
-            hashMap.put("text", titleArray[i]);
-            arrayList.add(hashMap);
+    private void initRecyclerView() {
+        List<String> dataList = new ArrayList<>();
+        for (int i = 'A'; i < 'Z'; i++) {
+            dataList.add("" + (char) i);
         }
+        recyclerView = getActivity().findViewById(R.id.main_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        HomeAdapter adapter = new HomeAdapter(getContext(), dataList);
+        recyclerView.setAdapter(adapter);
+        recyclerView.addOnScrollListener(new CustomScrollListener() {
+            @Override
+            public void onHide() {
+                toolbar.animate().translationY(-toolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+            }
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(getContext(), arrayList, R.layout.fragment_item,
-                new String[] { "image", "text" }, new int[] { R.id.image, R.id.text });
-        gridView.setAdapter(simpleAdapter);
+            @Override
+            public void onShow() {
+                toolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+            }
+        });
+
     }
 }
