@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import platform.client.wind.custom.CustomScrollListener;
 
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
-    private Toolbar toolbar;
+    private MaterialSearchBar searchBar;
 
     @Nullable
     @Override
@@ -36,7 +37,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        toolbar = getActivity().findViewById(R.id.toolbar);
+        searchBar = getActivity().findViewById(R.id.search_bar);
+        searchBar.setAlpha(0.8f);
         initRecyclerView();
     }
 
@@ -58,12 +60,12 @@ public class HomeFragment extends Fragment {
         recyclerView.addOnScrollListener(new CustomScrollListener() {
             @Override
             public void onHide() {
-                toolbar.animate().translationY(-toolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+                searchBar.animate().alpha(0.0f).setInterpolator(new AccelerateInterpolator(2));
             }
 
             @Override
             public void onShow() {
-                toolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+                searchBar.animate().alpha(0.8f).setInterpolator(new DecelerateInterpolator(2));
             }
         });
 

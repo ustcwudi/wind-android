@@ -91,12 +91,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
         gridView.setAdapter(simpleAdapter);
 
         List<String> dataList = new ArrayList<>();
-        dataList.add("#ff8876");
-        dataList.add("#3242ff");
-        dataList.add("#3ff2ff");
+        dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/three.jpg");
+        dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/two.jpg");
+        dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/one.jpg");
         Banner banner = header.findViewById(R.id.banner);
-        banner
-                .setPages(dataList, new HolderCreator<BannerViewHolder>() {
+        banner.setPages(dataList, new HolderCreator<BannerViewHolder>() {
                     @Override
                     public BannerViewHolder createViewHolder() {
                         return new CustomBannerView();

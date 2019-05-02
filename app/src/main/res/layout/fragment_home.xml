@@ -11,4 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
+        app:mt_hint="搜索"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        app:mt_maxSuggestionsCount="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_bar" />
+
 </RelativeLayout>
