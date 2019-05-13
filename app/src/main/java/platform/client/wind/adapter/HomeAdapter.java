@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.ms.banner.Banner;
 import com.ms.banner.holder.BannerViewHolder;
-import com.ms.banner.holder.HolderCreator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -95,12 +94,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
         dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/two.jpg");
         dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/one.jpg");
         Banner banner = header.findViewById(R.id.banner);
-        banner.setPages(dataList, new HolderCreator<BannerViewHolder>() {
-                    @Override
-                    public BannerViewHolder createViewHolder() {
-                        return new CustomBannerView();
-                    }
-                }).setAutoPlay(true).setDelayTime(3000)
+        banner.setPages(dataList, new CustomBannerView()).setAutoPlay(true).setDelayTime(3000)
                 .start();
         return header;
     }
