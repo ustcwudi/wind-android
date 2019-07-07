@@ -10,7 +10,6 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.ms.banner.Banner;
-import com.ms.banner.holder.BannerViewHolder;
 
 import java.util.ArrayList;
 import java.util.HashMap;

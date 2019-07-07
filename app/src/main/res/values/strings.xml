@@ -4,4 +4,6 @@
     <string name="title_item">分类</string>
     <string name="title_find">发现</string>
     <string name="title_mine">我的</string>
+    <string name="action_search">搜索</string>
+    <string name="action_scan">扫描</string>
 </resources>

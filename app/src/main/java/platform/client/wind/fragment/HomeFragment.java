@@ -11,10 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-
-import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +21,6 @@ import platform.client.wind.custom.CustomScrollListener;
 
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
-    private MaterialSearchBar searchBar;
 
     @Nullable
     @Override
@@ -37,8 +32,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        searchBar = getActivity().findViewById(R.id.search_bar);
-        searchBar.setAlpha(0.8f);
         initRecyclerView();
     }
 
@@ -60,12 +53,10 @@ public class HomeFragment extends Fragment {
         recyclerView.addOnScrollListener(new CustomScrollListener() {
             @Override
             public void onHide() {
-                searchBar.animate().alpha(0.0f).setInterpolator(new AccelerateInterpolator(2));
             }
 
             @Override
             public void onShow() {
-                searchBar.animate().alpha(0.8f).setInterpolator(new DecelerateInterpolator(2));
             }
         });
 

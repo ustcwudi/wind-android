@@ -4,10 +4,10 @@
         android:id="@+id/action_compose"
         android:icon="@drawable/ic_scan"
         app:showAsAction="ifRoom"
-        android:title="aa"/>
+        android:title="@string/action_scan"/>
     <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_search"
         app:showAsAction="ifRoom"
-        android:title="bb"/>
+        android:title="@string/action_search"/>
 </menu>
