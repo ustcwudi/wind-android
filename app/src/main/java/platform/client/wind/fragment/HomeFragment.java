@@ -4,23 +4,21 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import platform.client.wind.R;
-import platform.client.wind.adapter.HomeAdapter;
-import platform.client.wind.custom.CustomScrollListener;
+import platform.client.wind.pager.HomePager;
 
 public class HomeFragment extends Fragment {
-    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -32,33 +30,22 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initRecyclerView();
+        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
+                getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
+                .add(R.string.recommend, HomePager.class)
+                .add(R.string.find, HomePager.class)
+                .create());
+
+        ViewPager viewPager = getActivity().findViewById(R.id.pager);
+        viewPager.setAdapter(adapter);
+
+        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_layout);
+        viewPagerTab.setViewPager(viewPager);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.main_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    private void initRecyclerView() {
-        List<String> dataList = new ArrayList<>();
-        for (int i = 'A'; i < 'Z'; i++) {
-            dataList.add("" + (char) i);
-        }
-        recyclerView = getActivity().findViewById(R.id.main_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        HomeAdapter adapter = new HomeAdapter(getContext(), dataList);
-        recyclerView.setAdapter(adapter);
-        recyclerView.addOnScrollListener(new CustomScrollListener() {
-            @Override
-            public void onHide() {
-            }
-
-            @Override
-            public void onShow() {
-            }
-        });
-
     }
 }

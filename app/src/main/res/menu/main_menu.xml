@@ -3,11 +3,11 @@
     <item
         android:id="@+id/action_compose"
         android:icon="@drawable/ic_scan"
-        app:showAsAction="ifRoom"
-        android:title="@string/action_scan"/>
+        app:showAsAction="always"
+        android:title="@string/scan"/>
     <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_search"
-        app:showAsAction="ifRoom"
-        android:title="@string/action_search"/>
+        app:showAsAction="always"
+        android:title="@string/search"/>
 </menu>

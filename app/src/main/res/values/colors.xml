@@ -5,6 +5,7 @@
     <color name="light_yellow">#ffffe0</color> <!-- 亮黄色 -->
     <color name="yellow">#ffff00</color> <!-- 黄色 -->
     <color name="snow">#fffafa</color> <!-- 雪白色 -->
+    <color name="little_gray">#fafafa</color> <!-- 浅灰色 -->
     <color name="floral_white">#fffaf0</color> <!-- 花白色 -->
     <color name="lemon_chiffon">#fffacd</color> <!-- 柠檬绸色 -->
     <color name="corn_silk">#fff8dc</color> <!-- 米绸色 -->

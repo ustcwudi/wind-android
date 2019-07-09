@@ -27,6 +27,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.ogaclejapan.smarttablayout:library:1.7.0@aar'
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.7.0@aar'
     implementation 'com.github.wenchaosong:Banner:2.3.10'
     implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'

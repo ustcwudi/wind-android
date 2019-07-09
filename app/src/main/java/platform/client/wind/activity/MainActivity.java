@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
                     transaction.show(homeFragment);
                     break;
                 case R.id.navigation_item:
-                    transaction.show(mineFragment);
+                    transaction.show(shopFragment);
                     break;
                 case R.id.navigation_find:
-                    transaction.show(shopFragment);
+                    transaction.show(mineFragment);
                     break;
                 case R.id.navigation_mine:
                     transaction.show(mineFragment);
