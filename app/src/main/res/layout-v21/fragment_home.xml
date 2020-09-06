@@ -4,29 +4,29 @@
     android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:elevation="4dp"
         android:background="@color/white"
-        app:stl_indicatorInterpolation="linear"
+        android:elevation="4dp"
         app:stl_defaultTabTextColor="@color/dodger_blue"
-        app:stl_dividerColor="@color/white"
-        app:stl_indicatorWithoutPadding="false"
-        app:stl_underlineColor="@color/white"
         app:stl_defaultTabTextMinWidth="60dp"
+        app:stl_defaultTabTextSize="14dp"
+        app:stl_dividerColor="@color/white"
         app:stl_indicatorColor="@color/dodger_blue"
         app:stl_indicatorGravity="bottom"
+        app:stl_indicatorInterpolation="linear"
         app:stl_indicatorThickness="4dp"
-        app:stl_defaultTabTextSize="14dp"
-        app:stl_indicatorWidth="20dp" />
+        app:stl_indicatorWidth="20dp"
+        app:stl_indicatorWithoutPadding="false"
+        app:stl_underlineColor="@color/white" />
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_layout" />
 
 </RelativeLayout>

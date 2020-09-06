@@ -1,7 +1,7 @@
 package platform.client.wind.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,9 +89,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
         gridView.setAdapter(simpleAdapter);
 
         List<String> dataList = new ArrayList<>();
-        dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/three.jpg");
-        dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/two.jpg");
-        dataList.add("http://ces.whu.edu.cn/images/18/10/17/20w83ot61d/one.jpg");
+        dataList.add("https://eimg.smzdm.com/202009/04/5f519e4b7fa9b5824.png");
+        dataList.add("https://eimg.smzdm.com/202009/04/5f520a13abac25992.png");
+        dataList.add("https://eimg.smzdm.com/202009/04/5f52152b4ee948800.png");
         Banner banner = header.findViewById(R.id.banner);
         banner.setPages(dataList, new CustomBannerView()).setAutoPlay(true).setDelayTime(3000)
                 .start();

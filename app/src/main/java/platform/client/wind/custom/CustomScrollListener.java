@@ -1,11 +1,11 @@
 package platform.client.wind.custom;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class CustomScrollListener extends RecyclerView.OnScrollListener {
-    private static final int HIDE_THRESHOLD = 100;
+    private static final int HIDE_THRESHOLD = 50;
     private int scrolledDistance = 0;
     private boolean controlsVisible = true;
 
