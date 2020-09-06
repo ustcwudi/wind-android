@@ -17,6 +17,7 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import platform.client.wind.R;
 import platform.client.wind.pager.HomePager;
+import platform.client.wind.pager.ShopPager;
 
 public class ShopFragment extends Fragment  {
 
@@ -32,7 +33,7 @@ public class ShopFragment extends Fragment  {
         super.onActivityCreated(savedInstanceState);
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
-                .add(R.string.find, HomePager.class)
+                .add(R.string.shop, ShopPager.class)
                 .add(R.string.find, HomePager.class)
                 .create());
 

@@ -1,9 +1,6 @@
 package platform.client.wind.adapter;
 
 import android.content.Context;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +9,10 @@ import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.ms.banner.Banner;
 
 import java.util.ArrayList;
@@ -23,29 +23,19 @@ import java.util.Random;
 import platform.client.wind.R;
 import platform.client.wind.custom.CustomBannerView;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolder> {
-    private String[] titleArray = new String[]{"服装", "饮品", "零食", "电器", "数码", "书籍", "运动", "娱乐"};
-    private int[] idArray = new int[]{R.drawable.ic_girl, R.drawable.ic_drink, R.drawable.ic_cookie, R.drawable.ic_equipment, R.drawable.ic_digit, R.drawable.ic_book, R.drawable.ic_sport, R.drawable.ic_game};
-
+public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.InnerViewHolder> {
     private List<String> dataList;
     private Context context;
 
-    private int ITEM_TYPE_NORMAL = 0;
-    private int ITEM_TYPE_HEADER = 1;
-
-    public HomeAdapter(Context context, List data) {
+    public ShopAdapter(Context context, List data) {
         dataList = data;
         this.context = context;
     }
 
     @Override
     public InnerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == ITEM_TYPE_HEADER) {
-            return new InnerViewHolder(initHeader(parent));
-        } else {
-            View v = LayoutInflater.from(context).inflate(R.layout.adapter_home_card, parent, false);
-            return new InnerViewHolder(v);
-        }
+        View v = LayoutInflater.from(context).inflate(R.layout.adapter_shop_card, parent, false);
+        return new InnerViewHolder(v);
     }
 
     @Override
@@ -72,52 +62,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
                 "蒙牛 暖.酸奶 阿胶红枣枸杞红糖",
                 "哈尔斯 304不锈钢保温杯 450ml",
                 "CAFINE 刻凡 匠心制饼 中秋月饼礼盒 720g"};
-        int type = getItemViewType(position);
-        if (type == ITEM_TYPE_HEADER) {
-            return;
-        }
         holder.text.setText(titles[new Random().nextInt(10)]);
         Glide.with(holder.image).load(images[new Random().nextInt(10)]).into(holder.image);
     }
 
     @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-            return ITEM_TYPE_HEADER;
-        }
-        return ITEM_TYPE_NORMAL;
-    }
-
-    @Override
     public int getItemCount() {
         return dataList.size();
-    }
-
-    private View initHeader(ViewGroup parent) {
-        View header = LayoutInflater.from(context).inflate(R.layout.adapter_home_header, parent, false);
-
-        GridView gridView = header.findViewById(R.id.home_grid);
-        ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
-
-        for (int i = 0; i < 8; i++) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("image", idArray[i]);
-            hashMap.put("text", titleArray[i]);
-            arrayList.add(hashMap);
-        }
-
-        SimpleAdapter simpleAdapter = new SimpleAdapter(context, arrayList, R.layout.adapter_home_grid,
-                new String[]{"image", "text"}, new int[]{R.id.image, R.id.text});
-        gridView.setAdapter(simpleAdapter);
-
-        List<String> dataList = new ArrayList<>();
-        dataList.add("https://eimg.smzdm.com/202009/04/5f519e4b7fa9b5824.png");
-        dataList.add("https://eimg.smzdm.com/202009/04/5f520a13abac25992.png");
-        dataList.add("https://eimg.smzdm.com/202009/04/5f52152b4ee948800.png");
-        Banner banner = header.findViewById(R.id.banner);
-        banner.setPages(dataList, new CustomBannerView()).setAutoPlay(true).setDelayTime(3000)
-                .start();
-        return header;
     }
 
     class InnerViewHolder extends RecyclerView.ViewHolder {
