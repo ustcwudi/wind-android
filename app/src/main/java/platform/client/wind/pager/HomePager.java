@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,7 +43,18 @@ public class HomePager extends Fragment {
             dataList.add("" + (char) i);
         }
         recyclerView = getActivity().findViewById(R.id.main_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position == 0) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        recyclerView.setLayoutManager(manager);
         HomeAdapter adapter = new HomeAdapter(getContext(), dataList);
         recyclerView.setAdapter(adapter);
         recyclerView.addOnScrollListener(new CustomScrollListener() {
