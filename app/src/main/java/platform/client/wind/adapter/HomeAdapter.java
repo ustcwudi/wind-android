@@ -19,8 +19,8 @@ import platform.client.wind.R;
 import platform.client.wind.custom.CustomBannerView;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolder> {
-    private String[] titleArray = new String[]{"日历", "新闻", "消息", "旗帜", "钱包", "目标", "发现", "设置"};
-    private int[] idArray = new int[]{R.drawable.ic_date, R.drawable.ic_news, R.drawable.ic_message, R.drawable.ic_flag, R.drawable.ic_wallet, R.drawable.ic_target, R.drawable.ic_lamp, R.drawable.ic_config};
+    private String[] titleArray = new String[]{"服装", "饮品", "零食", "电器", "数码", "书籍", "运动", "娱乐"};
+    private int[] idArray = new int[]{R.drawable.ic_girl, R.drawable.ic_drink, R.drawable.ic_cookie, R.drawable.ic_equipment, R.drawable.ic_digit, R.drawable.ic_book, R.drawable.ic_sport, R.drawable.ic_game};
 
     private List<String> dataList;
     private Context context;

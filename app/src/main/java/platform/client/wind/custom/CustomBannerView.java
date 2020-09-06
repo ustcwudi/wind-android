@@ -17,16 +17,12 @@ public class CustomBannerView implements BannerViewHolder<String> {
     private TextView textView;
 
     @Override
-    public View createView(Context context) {
+    public View createView(Context context, int position, String data) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_home_banner, null);
         imageView = view.findViewById(R.id.image);
         textView = view.findViewById(R.id.text);
-        return view;
-    }
-
-    @Override
-    public void onBind(Context context, int position, String data) {
         Glide.with(imageView).load(data).into(imageView);
-        textView.setText(position + "");
+        textView.setText("");
+        return view;
     }
 }
