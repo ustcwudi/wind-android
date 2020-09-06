@@ -60,12 +60,12 @@ public class HomePager extends Fragment {
         recyclerView.addOnScrollListener(new CustomScrollListener() {
             @Override
             public void onHide() {
-//                ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+                //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
             }
 
             @Override
             public void onShow() {
-//                ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+                //((AppCompatActivity) getActivity()).getSupportActionBar().show();
             }
         });
 
