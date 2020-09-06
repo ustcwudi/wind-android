@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_find"
         android:icon="@drawable/ic_find"
-        android:title="@string/find" />
+        android:title="@string/trans" />
 
     <item
         android:id="@+id/navigation_mine"

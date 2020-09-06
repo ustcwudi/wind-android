@@ -67,7 +67,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
                 "三只松鼠 爆款零食大礼包 *3件",
                 "UNIQLO 优衣库 女士羊毛混纺喇叭裙",
                 "AMOI 夏新 F9 5.0无线蓝牙耳机",
-                "Sofy 苏菲 卫生巾套装",
+                "聆懿 一次性使用医用口罩 10只装",
                 "Nike 耐克 BRASILIA CU1033 训练行李包",
                 "Tingyi 康师傅 妙芙蛋糕 奶油口味 9枚 432g *5件",
                 "蒙牛 暖.酸奶 阿胶红枣枸杞红糖",

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import platform.client.wind.R;
 import platform.client.wind.fragment.HomeFragment;
+import platform.client.wind.fragment.MapFragment;
 import platform.client.wind.fragment.MineFragment;
 import platform.client.wind.fragment.ShopFragment;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment homeFragment;
     private ShopFragment shopFragment;
     private MineFragment mineFragment;
+    private MapFragment mapFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.hide(homeFragment);
             transaction.hide(shopFragment);
+            transaction.hide(mapFragment);
             transaction.hide(mineFragment);
             switch (item.getItemId()) {
                 case R.id.navigation_home:
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     transaction.show(shopFragment);
                     break;
                 case R.id.navigation_find:
-                    transaction.show(mineFragment);
+                    transaction.show(mapFragment);
                     break;
                 case R.id.navigation_mine:
                     transaction.show(mineFragment);
@@ -59,10 +62,13 @@ public class MainActivity extends AppCompatActivity {
         homeFragment = new HomeFragment();
         shopFragment = new ShopFragment();
         mineFragment = new MineFragment();
+        mapFragment = new MapFragment();
         transaction.add(R.id.main_container, homeFragment);
         transaction.add(R.id.main_container, shopFragment);
+        transaction.add(R.id.main_container, mapFragment);
         transaction.add(R.id.main_container, mineFragment);
         transaction.hide(shopFragment);
+        transaction.hide(mapFragment);
         transaction.hide(mineFragment);
         transaction.commit();
 
