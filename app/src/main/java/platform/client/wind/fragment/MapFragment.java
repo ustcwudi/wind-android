@@ -1,67 +1,54 @@
 package platform.client.wind.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
-import com.amap.api.maps2d.CameraUpdateFactory;
-import com.amap.api.maps2d.MapView;
-import com.amap.api.maps2d.model.MyLocationStyle;
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import platform.client.wind.R;
+import platform.client.wind.pager.CarPager;
+import platform.client.wind.pager.MapPager;
+import platform.client.wind.pager.ShopPager;
 
 public class MapFragment extends Fragment {
-    MapView mapView = null;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        return inflater.inflate(R.layout.fragment_car, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mapView = getActivity().findViewById(R.id.map);
-        mapView.onCreate(savedInstanceState);
-        MyLocationStyle locationStyle = new MyLocationStyle();
-        locationStyle.interval(10000);
-        locationStyle.radiusFillColor(Color.argb(10, 0, 0, 180));
-        locationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_FOLLOW_NO_CENTER);
-        mapView.getMap().moveCamera(CameraUpdateFactory.zoomTo(17));
-        mapView.getMap().getUiSettings().setMyLocationButtonEnabled(true);
-        mapView.getMap().setMyLocationEnabled(true);
-        mapView.getMap().setMyLocationStyle(locationStyle);
+        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
+                getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
+                .add("物流", CarPager.class)
+                .add("地图", MapPager.class)
+                .create());
+
+        ViewPager viewPager = getActivity().findViewById(R.id.car_pager);
+        viewPager.setAdapter(adapter);
+
+        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_car);
+        viewPagerTab.setViewPager(viewPager);
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mapView.onDestroy();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapView.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapView.onPause();
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

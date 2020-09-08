@@ -41,29 +41,46 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.InnerViewHolde
     @Override
     public void onBindViewHolder(InnerViewHolder holder, int position) {
         String[] images = new String[]{
-                "https://y.zdmimg.com/202009/05/5f2781e9496e2542.png_d200.jpg",
-                "https://qny.smzdm.com/202009/06/5f54394840be41595.jpg_d250.jpg",
-                "https://qny.smzdm.com/202009/06/5f545185cfca12280.jpg_d200.jpg",
-                "https://qny.smzdm.com/202009/06/5f53cdb177e9f8603.jpg_d200.jpg",
-                "https://qny.smzdm.com/202009/06/5cce4ef527a116405.jpg_d200.jpg",
-                "https://qny.smzdm.com/202009/04/5f51f2dbb108d135.jpg_d200.jpg",
-                "https://qny.smzdm.com/202009/05/5c890016382993033.jpg_d200.jpg",
-                "https://qny.smzdm.com/202009/05/5f536e363827d5157.jpg_d200.jpg",
-                "https://qny.smzdm.com/202009/05/5f538c4f2f6144805.jpg_d200.jpg",
-                "https://y.zdmimg.com/202009/03/5f50449d17ec17766.jpg_d200.jpg"};
+                "https://qny.smzdm.com/202007/29/5f211719bda35270.jpg_d200.jpg",
+                "https://y.zdmimg.com/201909/29/5d9079af158d79113.jpg_d200.jpg",
+                "https://qny.smzdm.com/202009/08/5f56dc6d679977057.jpg_d200.jpg",
+                "https://y.zdmimg.com/202009/05/5f52ff36b82ca5542.jpg_d200.jpg",
+                "https://qny.smzdm.com/202009/07/5f563e3b2edb08667.png_d200.jpg",
+                "https://qny.smzdm.com/202009/08/5f56e0eb660058055.jpg_d200.jpg",
+                "https://y.zdmimg.com/201712/21/5a3b52be136bc4976.jpg_d200.jpg",
+                "https://y.zdmimg.com/202009/07/5f49f9bcd8b3c3143.jpg_d200.jpg",
+                "https://qny.smzdm.com/202009/08/5f56e6aa32d842641.jpg_d200.jpg",
+                "https://qny.smzdm.com/202005/13/5ebb5809b18b86977.jpg_d200.jpg",
+                "https://y.zdmimg.com/201909/29/5d9049e4e82c68845.jpg_d200.jpg",
+                "https://qny.smzdm.com/202009/04/5ce35fbbd416e4920.jpg_d200.jpg",
+                "https://qny.smzdm.com/202009/07/5f563bdf83eaf4043.jpg_d200.jpg",
+                "https://y.zdmimg.com/202009/07/5f55f1459698a6770.png_d200.jpg",
+                "https://qny.smzdm.com/202009/07/5f55be880d7052781.jpg_d200.jpg",
+                "https://qny.smzdm.com/202003/24/5e79be0a6f73f9647.jpg_d200.jpg",
+                "https://qny.smzdm.com/202009/08/5f56eaeb79e882837.jpg_d200.jpg"};
         String[] titles = new String[]{
-                "天堂伞 时尚商务三折伞 多款可选",
-                "三只松鼠 爆款零食大礼包 *3件",
-                "UNIQLO 优衣库 女士羊毛混纺喇叭裙",
-                "AMOI 夏新 F9 5.0无线蓝牙耳机",
-                "聆懿 一次性使用医用口罩 10只装",
-                "Nike 耐克 BRASILIA CU1033 训练行李包",
-                "Tingyi 康师傅 妙芙蛋糕 奶油口味 9枚 432g *5件",
-                "蒙牛 暖.酸奶 阿胶红枣枸杞红糖",
-                "哈尔斯 304不锈钢保温杯 450ml",
-                "CAFINE 刻凡 匠心制饼 中秋月饼礼盒 720g"};
-        holder.text.setText(titles[new Random().nextInt(10)]);
-        Glide.with(holder.image).load(images[new Random().nextInt(10)]).into(holder.image);
+                "海氏海诺 一次性医用外科口罩 50只装",
+                "Tide 汰渍 护色防串色洗衣凝珠 19颗 *2件",
+                "白雪 T15 直液式走珠中性笔 0.5mm 10支",
+                "柚柏 iPhone11 磨砂全包手机壳",
+                "Colgate 高露洁 超洁纤柔牙刷 10支",
+                "UNIQLO 优衣库 422230 女款羊毛混纺迷你裙",
+                "Panasonic 松下 EH-WNE5D 电吹风机",
+                "ARIEL 碧浪 清爽防异味长效抑菌珠 140g",
+                "JOY 超浓缩除菌洗洁精 170ml*3瓶",
+                "KINGSHORE 金号 纯棉毛巾 75g/条 4条",
+                "M&G 晨光 ADM95297 黑色四层桌面带锁文件柜",
+                "ZMI 紫米 彩虹碱性电池 5号12粒 + 7号12粒",
+                "邻里赞 会理突尼斯软籽石榴 净重5斤中果",
+                "华味亨 焦糖味瓜子 500g/袋",
+                "伊利 金典 低脂纯牛奶 250ml*12盒/箱",
+                "怡宝 饮用纯净水 4.5l*4支/箱 * 2箱",
+                "BeLLE 百丽 U7D1DDD9 女士马丁靴"};
+        int random = new Random().nextInt(17);
+        holder.text.setText(titles[random]);
+        holder.price.setText("￥" + new Random().nextInt(100));
+        holder.count.setText(new Random().nextInt(500) + "人付款");
+        Glide.with(holder.image).load(images[random]).into(holder.image);
     }
 
     @Override
@@ -74,12 +91,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.InnerViewHolde
     class InnerViewHolder extends RecyclerView.ViewHolder {
 
         TextView text;
+        TextView price;
+        TextView count;
         ImageView image;
 
 
         public InnerViewHolder(View view) {
             super(view);
             text = view.findViewById(R.id.text);
+            price = view.findViewById(R.id.price);
+            count = view.findViewById(R.id.count);
             image = view.findViewById(R.id.image);
         }
     }

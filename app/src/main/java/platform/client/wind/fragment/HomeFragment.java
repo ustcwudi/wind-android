@@ -33,7 +33,9 @@ public class HomeFragment extends Fragment {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
                 .add(R.string.recommend, HomePager.class)
-                .add(R.string.find, HomePager.class)
+                .add(R.string.find, MineFragment.class)
+                .add("商家", MineFragment.class)
+                .add("促销", MineFragment.class)
                 .create());
 
         ViewPager viewPager = getActivity().findViewById(R.id.pager);

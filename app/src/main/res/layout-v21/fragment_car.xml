@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ogaclejapan.smarttablayout.SmartTabLayout
+        android:id="@+id/tab_car"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:stl_defaultTabTextColor="@color/dodger_blue"
+        app:stl_defaultTabTextMinWidth="60dp"
+        app:stl_defaultTabTextSize="14dp"
+        app:stl_dividerColor="@color/white"
+        app:stl_indicatorColor="@color/dodger_blue"
+        app:stl_indicatorGravity="bottom"
+        app:stl_indicatorInterpolation="linear"
+        app:stl_indicatorThickness="4dp"
+        app:stl_indicatorWidth="20dp"
+        app:stl_indicatorWithoutPadding="false"
+        app:stl_underlineColor="@color/white" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/car_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_car"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+
+</RelativeLayout>
