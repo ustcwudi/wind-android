@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 import java.util.Random;
 
@@ -27,7 +25,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.InnerViewHolder>
 
     @Override
     public InnerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.adapter_car_card, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.card_car, parent, false);
         return new InnerViewHolder(v);
     }
 

@@ -28,6 +28,9 @@
         <activity
             android:name=".activity.LoginActivity"
             android:label="登录"></activity>
+        <activity
+            android:name=".activity.MapActivity"
+            android:label="地图"></activity>
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="0cacef8ee02e9dc73c6b847c3a3d28be" />

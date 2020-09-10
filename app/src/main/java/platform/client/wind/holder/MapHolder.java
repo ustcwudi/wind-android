@@ -1,30 +1,31 @@
-package platform.client.wind.fragment;
+package platform.client.wind.holder;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import platform.client.wind.R;
-import platform.client.wind.pager.HomePager;
+import platform.client.wind.pager.CarPager;
 
-public class HomeFragment extends Fragment {
+public class MapHolder extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.holder_car, container, false);
     }
 
     @Override
@@ -32,22 +33,19 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
-                .add(R.string.recommend, HomePager.class)
-                .add(R.string.find, MineFragment.class)
-                .add("商家", MineFragment.class)
-                .add("促销", MineFragment.class)
+                .add("物流", CarPager.class)
                 .create());
 
-        ViewPager viewPager = getActivity().findViewById(R.id.pager);
+        ViewPager viewPager = getActivity().findViewById(R.id.car_pager);
         viewPager.setAdapter(adapter);
 
-        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_layout);
+        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_car);
         viewPagerTab.setViewPager(viewPager);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.search_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 }

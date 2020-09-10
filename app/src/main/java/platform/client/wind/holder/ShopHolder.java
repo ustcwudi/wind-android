@@ -1,4 +1,4 @@
-package platform.client.wind.fragment;
+package platform.client.wind.holder;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -16,17 +16,15 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import platform.client.wind.R;
-import platform.client.wind.pager.CarPager;
-import platform.client.wind.pager.HomePager;
 import platform.client.wind.pager.ShopPager;
 
-public class ShopFragment extends Fragment  {
+public class ShopHolder extends Fragment  {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.fragment_shop, container, false);
+        return inflater.inflate(R.layout.holder_shop, container, false);
     }
 
     @Override
@@ -35,14 +33,14 @@ public class ShopFragment extends Fragment  {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
                 .add(R.string.shop, ShopPager.class)
-                .add("服装", MineFragment.class)
-                .add("饮品", MineFragment.class)
-                .add("零食", MineFragment.class)
-                .add("电器", MineFragment.class)
-                .add("数码", MineFragment.class)
-                .add("书籍", MineFragment.class)
-                .add("运动", MineFragment.class)
-                .add("娱乐", MineFragment.class)
+                .add("服装", MineHolder.class)
+                .add("饮品", MineHolder.class)
+                .add("零食", MineHolder.class)
+                .add("电器", MineHolder.class)
+                .add("数码", MineHolder.class)
+                .add("书籍", MineHolder.class)
+                .add("运动", MineHolder.class)
+                .add("娱乐", MineHolder.class)
                 .create());
 
         ViewPager viewPager = getActivity().findViewById(R.id.shop_pager);

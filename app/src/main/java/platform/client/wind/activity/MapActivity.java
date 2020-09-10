@@ -1,14 +1,12 @@
-package platform.client.wind.pager;
+package platform.client.wind.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.MapView;
@@ -16,20 +14,14 @@ import com.amap.api.maps2d.model.MyLocationStyle;
 
 import platform.client.wind.R;
 
-public class MapPager extends Fragment {
+public class MapActivity extends AppCompatActivity {
     MapView mapView = null;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.fragment_map, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mapView = getActivity().findViewById(R.id.map);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map);
+        mapView = findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         MyLocationStyle locationStyle = new MyLocationStyle();
         locationStyle.interval(10000);

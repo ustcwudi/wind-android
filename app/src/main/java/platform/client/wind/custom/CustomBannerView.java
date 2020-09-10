@@ -18,7 +18,7 @@ public class CustomBannerView implements BannerViewHolder<String> {
 
     @Override
     public View createView(Context context, int position, String data) {
-        View view = LayoutInflater.from(context).inflate(R.layout.adapter_home_banner, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.part_banner, null);
         imageView = view.findViewById(R.id.image);
         textView = view.findViewById(R.id.text);
         Glide.with(imageView).load(data).into(imageView);

@@ -1,4 +1,4 @@
-package platform.client.wind.fragment;
+package platform.client.wind.holder;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import platform.client.wind.R;
-import platform.client.wind.activity.LoginActivity;
+import platform.client.wind.activity.MapActivity;
 
-public class MineFragment extends Fragment {
+public class MineHolder extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_mine, container, false);
+        return inflater.inflate(R.layout.pager_mine, container, false);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class MineFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), MapActivity.class);
                 getActivity().startActivity(intent);
             }
         });

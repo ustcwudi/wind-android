@@ -12,17 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import platform.client.wind.R;
-import platform.client.wind.fragment.HomeFragment;
-import platform.client.wind.fragment.MapFragment;
-import platform.client.wind.fragment.MineFragment;
-import platform.client.wind.fragment.ShopFragment;
+import platform.client.wind.holder.HomeHolder;
+import platform.client.wind.holder.MapHolder;
+import platform.client.wind.holder.MineHolder;
+import platform.client.wind.holder.ShopHolder;
 
 public class MainActivity extends AppCompatActivity {
 
-    private HomeFragment homeFragment;
-    private ShopFragment shopFragment;
-    private MineFragment mineFragment;
-    private MapFragment mapFragment;
+    private HomeHolder homeHolder;
+    private ShopHolder shopHolder;
+    private MineHolder mineHolder;
+    private MapHolder mapHolder;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,22 +30,22 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.hide(homeFragment);
-            transaction.hide(shopFragment);
-            transaction.hide(mapFragment);
-            transaction.hide(mineFragment);
+            transaction.hide(homeHolder);
+            transaction.hide(shopHolder);
+            transaction.hide(mapHolder);
+            transaction.hide(mineHolder);
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    transaction.show(homeFragment);
+                    transaction.show(homeHolder);
                     break;
                 case R.id.navigation_item:
-                    transaction.show(shopFragment);
+                    transaction.show(shopHolder);
                     break;
                 case R.id.navigation_find:
-                    transaction.show(mapFragment);
+                    transaction.show(mapHolder);
                     break;
                 case R.id.navigation_mine:
-                    transaction.show(mineFragment);
+                    transaction.show(mineHolder);
                     break;
             }
             transaction.commit();
@@ -59,17 +59,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        homeFragment = new HomeFragment();
-        shopFragment = new ShopFragment();
-        mineFragment = new MineFragment();
-        mapFragment = new MapFragment();
-        transaction.add(R.id.main_container, homeFragment);
-        transaction.add(R.id.main_container, shopFragment);
-        transaction.add(R.id.main_container, mapFragment);
-        transaction.add(R.id.main_container, mineFragment);
-        transaction.hide(shopFragment);
-        transaction.hide(mapFragment);
-        transaction.hide(mineFragment);
+        homeHolder = new HomeHolder();
+        shopHolder = new ShopHolder();
+        mineHolder = new MineHolder();
+        mapHolder = new MapHolder();
+        transaction.add(R.id.main_container, homeHolder);
+        transaction.add(R.id.main_container, shopHolder);
+        transaction.add(R.id.main_container, mapHolder);
+        transaction.add(R.id.main_container, mineHolder);
+        transaction.hide(shopHolder);
+        transaction.hide(mapHolder);
+        transaction.hide(mineHolder);
         transaction.commit();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);

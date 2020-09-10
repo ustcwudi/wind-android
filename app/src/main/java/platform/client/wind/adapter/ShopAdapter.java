@@ -4,24 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.mancj.materialsearchbar.MaterialSearchBar;
-import com.ms.banner.Banner;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 import platform.client.wind.R;
-import platform.client.wind.custom.CustomBannerView;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.InnerViewHolder> {
     private List<String> dataList;
@@ -34,7 +27,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.InnerViewHolde
 
     @Override
     public InnerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.adapter_shop_card, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.card_product, parent, false);
         return new InnerViewHolder(v);
     }
 

@@ -43,7 +43,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
         if (viewType == ITEM_TYPE_HEADER) {
             return new InnerViewHolder(initHeader(parent));
         } else {
-            View v = LayoutInflater.from(context).inflate(R.layout.adapter_home_card, parent, false);
+            View v = LayoutInflater.from(context).inflate(R.layout.card_product, parent, false);
             return new InnerViewHolder(v);
         }
     }
@@ -111,7 +111,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
     }
 
     private View initHeader(ViewGroup parent) {
-        View header = LayoutInflater.from(context).inflate(R.layout.adapter_home_header, parent, false);
+        View header = LayoutInflater.from(context).inflate(R.layout.part_header, parent, false);
 
         GridView gridView = header.findViewById(R.id.home_grid);
         ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
@@ -123,7 +123,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
             arrayList.add(hashMap);
         }
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(context, arrayList, R.layout.adapter_home_grid,
+        SimpleAdapter simpleAdapter = new SimpleAdapter(context, arrayList, R.layout.part_icon,
                 new String[]{"image", "text"}, new int[]{R.id.image, R.id.text});
         gridView.setAdapter(simpleAdapter);
 
