@@ -5,9 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -19,7 +17,6 @@ import java.util.List;
 
 import platform.client.wind.R;
 import platform.client.wind.adapter.HomeAdapter;
-import platform.client.wind.custom.CustomScrollListener;
 
 public class HomePager extends Fragment {
     private RecyclerView recyclerView;
@@ -57,17 +54,5 @@ public class HomePager extends Fragment {
         recyclerView.setLayoutManager(manager);
         HomeAdapter adapter = new HomeAdapter(getContext(), dataList);
         recyclerView.setAdapter(adapter);
-        recyclerView.addOnScrollListener(new CustomScrollListener() {
-            @Override
-            public void onHide() {
-                //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-            }
-
-            @Override
-            public void onShow() {
-                //((AppCompatActivity) getActivity()).getSupportActionBar().show();
-            }
-        });
-
     }
 }

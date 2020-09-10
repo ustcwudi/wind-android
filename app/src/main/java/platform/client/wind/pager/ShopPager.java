@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import platform.client.wind.R;
-import platform.client.wind.adapter.HomeAdapter;
 import platform.client.wind.adapter.ShopAdapter;
-import platform.client.wind.custom.CustomScrollListener;
 
 public class ShopPager extends Fragment {
     private RecyclerView recyclerView;
@@ -45,17 +43,5 @@ public class ShopPager extends Fragment {
         recyclerView.setLayoutManager(manager);
         ShopAdapter adapter = new ShopAdapter(getContext(), dataList);
         recyclerView.setAdapter(adapter);
-        recyclerView.addOnScrollListener(new CustomScrollListener() {
-            @Override
-            public void onHide() {
-                //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-            }
-
-            @Override
-            public void onShow() {
-                //((AppCompatActivity) getActivity()).getSupportActionBar().show();
-            }
-        });
-
     }
 }

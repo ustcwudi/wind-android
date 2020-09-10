@@ -16,8 +16,6 @@ import java.util.List;
 
 import platform.client.wind.R;
 import platform.client.wind.adapter.CarAdapter;
-import platform.client.wind.adapter.ShopAdapter;
-import platform.client.wind.custom.CustomScrollListener;
 
 public class CarPager extends Fragment {
     private RecyclerView recyclerView;
@@ -45,17 +43,5 @@ public class CarPager extends Fragment {
         recyclerView.setLayoutManager(manager);
         CarAdapter adapter = new CarAdapter(getContext(), dataList);
         recyclerView.setAdapter(adapter);
-        recyclerView.addOnScrollListener(new CustomScrollListener() {
-            @Override
-            public void onHide() {
-                //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-            }
-
-            @Override
-            public void onShow() {
-                //((AppCompatActivity) getActivity()).getSupportActionBar().show();
-            }
-        });
-
     }
 }

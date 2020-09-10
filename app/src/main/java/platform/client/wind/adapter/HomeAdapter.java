@@ -111,7 +111,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
     }
 
     private View initHeader(ViewGroup parent) {
-        View header = LayoutInflater.from(context).inflate(R.layout.part_header, parent, false);
+        View header = LayoutInflater.from(context).inflate(R.layout.part_dashboard, parent, false);
 
         GridView gridView = header.findViewById(R.id.home_grid);
         ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
