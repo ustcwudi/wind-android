@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import platform.client.wind.R;
 import platform.client.wind.holder.HomeHolder;
@@ -34,17 +36,27 @@ public class MainActivity extends AppCompatActivity {
             transaction.hide(shopHolder);
             transaction.hide(mapHolder);
             transaction.hide(mineHolder);
+            TextView title = findViewById(R.id.title);
+            ImageView operation = findViewById(R.id.operation);
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     transaction.show(homeHolder);
+                    title.setText(R.string.app_name);
+                    operation.setImageResource(R.drawable.ic_scan);
                     break;
                 case R.id.navigation_item:
+                    title.setText(R.string.shop);
+                    operation.setImageResource(R.drawable.ic_search);
                     transaction.show(shopHolder);
                     break;
                 case R.id.navigation_find:
+                    title.setText(R.string.trans);
+                    operation.setImageResource(R.drawable.ic_map);
                     transaction.show(mapHolder);
                     break;
                 case R.id.navigation_mine:
+                    title.setText(R.string.mine);
+                    operation.setImageResource(R.drawable.ic_set);
                     transaction.show(mineHolder);
                     break;
             }
