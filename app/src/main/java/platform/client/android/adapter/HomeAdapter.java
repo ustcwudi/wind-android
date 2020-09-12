@@ -1,4 +1,4 @@
-package platform.client.wind.adapter;
+package platform.client.android.adapter;
 
 import android.content.Context;
 
@@ -20,8 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-import platform.client.wind.R;
-import platform.client.wind.custom.CustomBannerView;
+import platform.client.android.R;
+import platform.client.android.custom.CustomBannerView;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolder> {
     private String[] titleArray = new String[]{"服装", "饮品", "零食", "电器", "数码", "书籍", "运动", "娱乐"};
@@ -36,6 +36,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.InnerViewHolde
     public HomeAdapter(Context context, List data) {
         dataList = data;
         this.context = context;
+    }
+
+    public void setNewData(List<String> list){
+        this.dataList = list;
     }
 
     @Override

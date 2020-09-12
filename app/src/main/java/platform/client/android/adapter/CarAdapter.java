@@ -1,4 +1,4 @@
-package platform.client.wind.adapter;
+package platform.client.android.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import java.util.Random;
 
-import platform.client.wind.R;
+import platform.client.android.R;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.InnerViewHolder> {
     private List<String> dataList;

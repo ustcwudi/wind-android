@@ -1,30 +1,31 @@
-package platform.client.wind.holder;
+package platform.client.android.holder;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
-import platform.client.wind.R;
-import platform.client.wind.pager.ShopPager;
+import platform.client.android.R;
+import platform.client.android.page.CarPage;
 
-public class ShopHolder extends Fragment  {
+public class MapHolder extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.holder_shop, container, false);
+        return inflater.inflate(R.layout.holder_car, container, false);
     }
 
     @Override
@@ -32,21 +33,13 @@ public class ShopHolder extends Fragment  {
         super.onActivityCreated(savedInstanceState);
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
-                .add(R.string.shop, ShopPager.class)
-                .add("服装", MineHolder.class)
-                .add("饮品", MineHolder.class)
-                .add("零食", MineHolder.class)
-                .add("电器", MineHolder.class)
-                .add("数码", MineHolder.class)
-                .add("书籍", MineHolder.class)
-                .add("运动", MineHolder.class)
-                .add("娱乐", MineHolder.class)
+                .add("物流", CarPage.class)
                 .create());
 
-        ViewPager viewPager = getActivity().findViewById(R.id.shop_pager);
+        ViewPager viewPager = getActivity().findViewById(R.id.car_pager);
         viewPager.setAdapter(adapter);
 
-        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_shop);
+        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_car);
         viewPagerTab.setViewPager(viewPager);
     }
 

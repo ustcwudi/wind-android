@@ -1,4 +1,4 @@
-package platform.client.wind.custom;
+package platform.client.android.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;

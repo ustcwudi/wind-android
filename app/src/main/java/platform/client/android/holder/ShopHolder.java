@@ -1,4 +1,4 @@
-package platform.client.wind.holder;
+package platform.client.android.holder;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -15,16 +15,16 @@ import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
-import platform.client.wind.R;
-import platform.client.wind.pager.HomePager;
+import platform.client.android.R;
+import platform.client.android.page.ShopPage;
 
-public class HomeHolder extends Fragment {
+public class ShopHolder extends Fragment  {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.holder_home, container, false);
+        return inflater.inflate(R.layout.holder_shop, container, false);
     }
 
     @Override
@@ -32,16 +32,21 @@ public class HomeHolder extends Fragment {
         super.onActivityCreated(savedInstanceState);
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity())
-                .add(R.string.recommend, HomePager.class)
-                .add(R.string.find, MineHolder.class)
-                .add("商家", MineHolder.class)
-                .add("促销", MineHolder.class)
+                .add(R.string.shop, ShopPage.class)
+                .add("服装", MineHolder.class)
+                .add("饮品", MineHolder.class)
+                .add("零食", MineHolder.class)
+                .add("电器", MineHolder.class)
+                .add("数码", MineHolder.class)
+                .add("书籍", MineHolder.class)
+                .add("运动", MineHolder.class)
+                .add("娱乐", MineHolder.class)
                 .create());
 
-        ViewPager viewPager = getActivity().findViewById(R.id.pager);
+        ViewPager viewPager = getActivity().findViewById(R.id.shop_pager);
         viewPager.setAdapter(adapter);
 
-        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_layout);
+        SmartTabLayout viewPagerTab = getActivity().findViewById(R.id.tab_shop);
         viewPagerTab.setViewPager(viewPager);
     }
 

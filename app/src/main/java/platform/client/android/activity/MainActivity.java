@@ -1,4 +1,4 @@
-package platform.client.wind.activity;
+package platform.client.android.activity;
 
 import android.os.Bundle;
 
@@ -13,11 +13,11 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import platform.client.wind.R;
-import platform.client.wind.holder.HomeHolder;
-import platform.client.wind.holder.MapHolder;
-import platform.client.wind.holder.MineHolder;
-import platform.client.wind.holder.ShopHolder;
+import platform.client.android.R;
+import platform.client.android.holder.HomeHolder;
+import platform.client.android.holder.MapHolder;
+import platform.client.android.holder.MineHolder;
+import platform.client.android.holder.ShopHolder;
 
 public class MainActivity extends AppCompatActivity {
 

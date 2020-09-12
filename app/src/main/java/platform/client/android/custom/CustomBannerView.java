@@ -1,4 +1,4 @@
-package platform.client.wind.custom;
+package platform.client.android.custom;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.ms.banner.holder.BannerViewHolder;
 
-import platform.client.wind.R;
+import platform.client.android.R;
 
 public class CustomBannerView implements BannerViewHolder<String> {
 

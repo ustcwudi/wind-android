@@ -1,9 +1,7 @@
-package platform.client.wind.activity;
+package platform.client.android.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +10,7 @@ import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.MyLocationStyle;
 
-import platform.client.wind.R;
+import platform.client.android.R;
 
 public class MapActivity extends AppCompatActivity {
     MapView mapView = null;

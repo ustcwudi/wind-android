@@ -1,4 +1,4 @@
-package platform.client.wind.adapter;
+package platform.client.android.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 import java.util.Random;
 
-import platform.client.wind.R;
+import platform.client.android.R;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.InnerViewHolder> {
     private List<String> dataList;

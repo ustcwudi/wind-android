@@ -1,4 +1,4 @@
-package platform.client.wind.holder;
+package platform.client.android.holder;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import platform.client.wind.R;
-import platform.client.wind.activity.MapActivity;
+import platform.client.android.R;
+import platform.client.android.activity.MapActivity;
 
 public class MineHolder extends Fragment {
 

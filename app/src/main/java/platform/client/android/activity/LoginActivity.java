@@ -1,4 +1,4 @@
-package platform.client.wind.activity;
+package platform.client.android.activity;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import platform.client.wind.R;
+import platform.client.android.R;
 
 public class LoginActivity extends AppCompatActivity {
     @Override

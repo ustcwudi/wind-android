@@ -1,4 +1,4 @@
-package platform.client.wind.pager;
+package platform.client.android.page;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,16 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import platform.client.wind.R;
-import platform.client.wind.adapter.CarAdapter;
+import platform.client.android.R;
+import platform.client.android.adapter.CarAdapter;
 
-public class CarPager extends Fragment {
+public class CarPage extends Fragment {
     private RecyclerView recyclerView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.pager_car, container, false);
     }
 
